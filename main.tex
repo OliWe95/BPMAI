@@ -1,0 +1,132 @@
+
+\documentclass[a4paper,
+12pt,footsepline,oneside,			
+plainfootsepline,listof=totoc,headinclude,
+footinclude]{scrreprt}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage[nohyperlinks,printonlyused, withpage,  withpage]{acronym}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{wrapfig}
+\usepackage{color}
+\usepackage{selinput}
+\usepackage{fancyvrb}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{blindtext}
+\usepackage{scrpage2}
+\usepackage{caption}
+\usepackage[section]{placeins}
+ 
+
+\pagestyle{scrheadings}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{german}{german-apa}
+\addbibresource{lit.bib}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+
+%Seitenzahlen
+\clearscrplain
+\clearscrheadings
+\ofoot[\pagemark]{\pagemark}
+
+%Coding Environment
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+	basicstyle= \small\footnotesize\ttfamily,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+%Umbenennungen
+\renewcommand*{\figurename}{Abbildung}
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\renewcommand*{\bibname}{Literaturverzeichnis}
+\renewcommand*{\listfigurename}{Abbildungsverzeichnis}
+
+%Absatzformatierung
+\renewcommand*\chapterheadstartvskip{\vspace*{-\topskip}}
+\renewcommand*\chapterheadendvskip{%
+  \vspace*{1\baselineskip plus .1\baselineskip minus .167\baselineskip}}
+\parskip 5pt plus 1pt minus 1pt
+%\addtolength{\parskip}{\baselineskip}
+\parindent 0pt    
+  
+
+%Pageoffset
+\geometry{
+ left=3.5cm,
+  right=2.5cm,
+  top=2.2cm,
+  bottom=3cm,
+  bindingoffset=2mm
+}
+
+%line spacing
+\setstretch{1.5}	
+
+
+%custom commands
+\newcommand{\ThesisTitle}{Text2Process - der Stanford Parser}
+
+\newcommand{\Heading}[1]{ \begin{center} 
+\textbf{#1} 
+\newline
+\end{center}}
+ 
+
+%document structure
+\begin{document}
+
+\pagenumbering{Roman}
+\input{chapters/a1_titelseite}\newpage\cleardoublepage
+\input{chapters/a2_erklaerung}\newpage\cleardoublepage
+
+\tableofcontents \newpage\cleardoublepage
+\listoffigures  \newpage\cleardoublepage
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\listoftables  \newpage\cleardoublepage
+
+\chapter*{Abkürzungsverzeichnis}
+\begin{acronym} 
+  \acro{BPMN}{Business Process Modeling Notation}
+\end{acronym}
+
+
+\chapter{Einleitung}\pagenumbering{arabic}	
+
+
+\input{chapters/b1_example}
+\chapter{Hauptteil}
+
+
+\chapter{Schluss}
+
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\printbibliography
+
+\input{chapters/z1_anhang}
+
+\end{document}
