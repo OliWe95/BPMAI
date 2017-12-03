@@ -1,1 +1,56 @@
 \section{Wordnet}
+
+Einleitung:
+Bei der zwischenmenschlichen Kommunikation werden Informationen in codierter Form über das Medium der Sprache übertragen. Für den Erfolg des Informationstausches ist die richtige Decodierung der abstrakten Spracheinformationen, das heißt die richtige Verknüpfung eines Wortes mit dessen Bedeutung, entscheidend. Um effektiv Informationen aus einem Text zu gewinnen, sind also zwei Werkzeuge nötig:
+\begin{quote} \textit{"In order to effectively exchange information, agents need to share a lexicon of words as well as to access the world model(s) underlying the lexicon."}\end{quote} (\cite[vgl.][1]{OLTRAMANI})
+
+Die Kommunikationspartner müssen sowohl über denselben Wortschatz als auch über ein gemeinsames Weltverständnis verfügen. Dies gilt auch für die Mensch-Maschine Kommunikation. Um ein Weltmodell kann beispielsweise mittels einer Ontologie in maschinenlesbarer Form abgebildet werden. Eine Ontologie ist in der Informatik definiert als System von Informationen mit logischen Relationen (Duden Zitat). WordNet ist eine solche als semantisches Netz organisierte, lexikalische Ressource.
+
+Die Entwicklung von WordNet begann bereits 1985 and der Universität Princeton. 1993 wurde die erste Version veröffentlicht. Die aktuelle Version, das WordNet 3.0, enthält über 155.287 manuell verfasste Einträge (WordNet Zitat).
+In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Synsets gruppiert. Der Begriff ist ein Neologismus aus synonym (dt. Synonym) und set (dt. Menge, Zusammenstellung). Die Synsets werden über Kanten verknüpft, die bestimmte semantische Relationen repräsentieren. So entsteht ein gerichteter azyklischer Graph (\cite[vgl.][12]{OLTRAMANI}), der dem Aufbau des neuronalen Netzes im menschlichen Gehirn ähnelt.
+
+Die aktuelle Version von WordNet folgt den Linked Open Data Principles, und somit auch den Grundsätzen des Semantic Web. „Linked Open Data (LOD) is Linked Data which is released under an open licence, which does not impede its reuse for free.“(Bernes-Lee Zitat).  (…)
+
+- 4 Regeln nach Bernes Lee, Integration mit anderen Quellen RDF und OWL
+
+Grundsätzlich setzt sich WordNet aus vier Datenbanken zusammen: Nomen, Verben, Adjektive und Adverben. Jede dieser Datenbanken beinhaltet miteinander verknüpfte Synsets. Hierbei wird jeweils auch die Arte der Verknüpfung bzw. der semantischen Relation angegeben. (Linguistik Quelle)
+
+
+
+Nomen:
+-	Hyponyme/Hypernyme (Typ und Instanz)
+
+-	Meronyme/Holonyme (part-of/has-part) member, part, substance
+
+-	Antonyme
+
+Verben: Troponyme, Antonyme, Entails?
+
+Adjektive und Adverben: Antonyme und Pertainyme
+
+Auch DB übergreifende Relationen
+
+
+Andere Ressourcen
+-	Thesauri
+
+-	FrameNet (Berkley, 10.000 Wortbedeutungen, 170.000
+Sätze, semantishce Rollenzuweisung frames vs. Synsets, Fokus auf Sätzen)
+
+-	PropBank, ConceptNet
+
+Bedeutung und Einsatz
+
+-	Weit verbreitet, viele Subsets (Verbnet), in unterschiedlichen Sprachen
+
+-	WSD (Word Sense Disambiguation) de facto standard , die Richtige Bedeutung eines mehrdeutigen Wortes in gegebenem Kontext bestimmen
+
+-	Wissensbasiert (Wordnet) vs. AI (wenig Trainingsdaten)
+
+-	+ domänenunabhängig, umfangreich, öffentlich zugänglich, packages für versch. Programmiersprachen (NLTK)
+
+-	-von Menschen erstellt = inkonsistent, zu detailliert,
+ 
+-	Kombination mit anderen Quellen (lemon, Uby, BabelNet)
+
+Die Semantische Analyse ist ein entscheidender Teilschritt des Natural Language Processing. Ziel ist es, die lexikalische Semantik eines Wortes zu erfassen.
