@@ -12,24 +12,54 @@ Das \textit{Princeton WordNet} ist eine solche Ontologie, also eine als semantis
 
 \subsection{Struktur und Aufbau}
 
-In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Synsets gruppiert. Der Begriff ist ein Neologismus aus synonym (dt. Synonym) und set (dt. Menge, Zusammenstellung). Die Synsets werden über Kanten verknüpft, die bestimmte semantische Relationen repräsentieren. So entsteht ein gerichteter azyklischer Graph (\cite[vgl.][12]{OLTRAMANI}), der dem Aufbau des neuronalen Netzes im menschlichen Gehirn ähnelt. Grundsätzlich setzt sich WordNet aus vier Datenbanken für die jeweiligen Wortarten Nomen, Verben, Adjektive und Adverben zusammen. Jede dieser Datenbanken beinhaltet miteinander verknüpfte Synsets. Hierbei wird jeweils auch die Arte der Verknüpfung bzw. der semantischen Relation angegeben. Abhängig von der Wortart sind verschiedene Arten von Relationen möglich.
+In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Synsets gruppiert. Der Begriff ist ein Neologismus aus synonym (dt. Synonym) und set (dt. Menge, Zusammenstellung). Die Synsets werden über Kanten verknüpft, die bestimmte semantische Relationen repräsentieren. So entsteht ein gerichteter azyklischer Graph (\cite[vgl.][12]{OLTRAMANI}), der dem Aufbau des neuronalen Netzes im menschlichen Gehirn ähnelt. Grundsätzlich setzt sich WordNet aus vier Datenbanken für die jeweiligen Wortarten Nomen, Verben, Adjektive und Adverben zusammen. Jede dieser Datenbanken beinhaltet miteinander verknüpfte Synsets. Hierbei wird jeweils auch die Arte der Verknüpfung bzw. der semantischen Relation angegeben. Abhängig von der Wortart sind verschiedene Arten von Relationen möglich. \ref{table:table2} zeigt die Relationen von Nomen und Verben in WordNet geordnet nach Häufigkeit.
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+     Rang & Relationen der Nomen & Anteil  & Relationen der Verben & Anteil \\
+    \midrule
+    1 & Hyponyme/Hypernyme: & 45.5\% & Abgeleitete Form:    & 55.4\% \\
+    2 & Abgeleitete Form:   & 22.4\% & Troponyme/Hypernyme: & 31.7\% \\
+    3 & Meronyme/Holonymy:  & 13.3\% & Verbgruppe:          & 4.2\%  \\
+    4 & Wissensgebiet:      & 9.1\%  & Wissensgebiet:       & 3.0\%  \\
+    5 & Typ/Instanz: 		& 5.1\%  & Antonymy:			& 2.6\%  \\
+    6 & Pertainyme: 		& 2.9\%  & Siehe auch: 		    & 1.4\%  \\
+    7 & Antonyme: 			& 1.3\%) & Folgebeziehung: 	    & 1.0\%  \\
+	8 & Attribut: 			& 0.4\%  & Ursache: 			& 0.5\%  \\
+	9 & Partizip: 	        & 0.2\%  & -     	            & -  	 \\
+
+  \end{tabular}
+  \caption{Relationen in WordNet (\cite[vgl.][9]{MAZIARZ})}
+  \label{table:table2}
+\end{table}
+
+- Erläuterung Relationsarten
+- Adjektive und Adverben: Antonyme und Pertainyme
+
+(...)
+
+\subsection{Java APIs}
+
+Um WordNet direkt in eigene Softwareprojekte einbinden zu können, stehen allein für die Programmiersprache Java 12 verschiedenen Bibliotheken zu Verfügung. Bei der Wahl einer geeigneten Bibliothek häbt von verschiedenen Faktoren ab. Im Vergleich schneidet das \textit{Java WordNet Interface} \ac{JWI} für den allgemeinen Anwendungsfall am besten ab (\cite[vgl.][2]{FINLAYSON}). Auch gegenüber der weit verbreiteten \textit{Java WordNet Library} \ac{JWNL} bietet es nach Finlayson die folgenden überzeugenden Vorteile:
+
+\begin{itemize} 
+\item Vollumfänglicher Zugriff auf alle WordNet Ressourcen
+\item Arbeitet direkt mit den WordNet files (keine Modifizierung notwendig)
+\item Dateibasierte und In-Memory-basierte Implementierungsmöglichkeiten
+\item Anzahl der instanziierten Dictionaries kann beliebig groß gewählt werden
+\item Sehr hohe Performanz
+\item Speicherschonend und unabhängig
+\item Es wird keine config-Datei benötigt 
+\item Ausführliche Dokumentation
+\item Aktiver Support und kontinuierliche Weiterentwicklung
+\end{itemize}
 
 
+Notizen:
 
-
-Nomen:
--	Hyponyme/Hypernyme (Typ und Instanz)
-
--	Meronyme/Holonyme (part-of/has-part) member, part, substance
-
--	Antonyme
-
-Verben: Troponyme, Antonyme, Entails?
-
-Adjektive und Adverben: Antonyme und Pertainyme
-
-Auch DB übergreifende Relationen
-
+- Einbindung und Verwendung (Beispiele)
 
 Andere Ressourcen
 -	Thesauri
