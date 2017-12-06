@@ -1,35 +1,65 @@
 \section{Wordnet}
 
-Einleitung:
+
+\subsection{Ontologien im Allgemeinen}
+
 Bei der zwischenmenschlichen Kommunikation werden Informationen in codierter Form über das Medium der Sprache übertragen. Für den Erfolg des Informationstausches ist die richtige Decodierung der abstrakten Spracheinformationen, das heißt die richtige Verknüpfung eines Wortes mit dessen Bedeutung, entscheidend. Um effektiv Informationen aus einem Text zu gewinnen, sind also zwei Werkzeuge nötig:
-\begin{quote} \textit{"In order to effectively exchange information, agents need to share a lexicon of words as well as to access the world model(s) underlying the lexicon."}\end{quote} (\cite[vgl.][1]{OLTRAMANI})
+\begin{quote} \textit{"`In order to effectively exchange information, agents need to share a lexicon of words as well as to access the world model(s) underlying the lexicon."'} (\cite[vgl.][1]{OLTRAMANI})\end{quote} 
 
-Die Kommunikationspartner müssen sowohl über denselben Wortschatz als auch über ein gemeinsames Weltverständnis verfügen. Dies gilt auch für die Mensch-Maschine Kommunikation. Um ein Weltmodell kann beispielsweise mittels einer Ontologie in maschinenlesbarer Form abgebildet werden. Eine Ontologie ist in der Informatik definiert als System von Informationen mit logischen Relationen (Duden Zitat). WordNet ist eine solche als semantisches Netz organisierte, lexikalische Ressource.
+Die Kommunikationspartner müssen sowohl über denselben Wortschatz als auch über ein gemeinsames Weltverständnis verfügen. Dies gilt auch für die Mensch-Maschine Kommunikation. Ein Weltmodell kann beispielsweise mittels einer Ontologie in maschinenlesbarer Form abgebildet werden. Eine Ontologie ist in der Informatik definiert als System von Informationen mit logischen Relationen (\cite[vgl.][1]{DUDEN}). Eingeführt wurde der Begriff in de 70er Jahren auf dem Forschungsgebiet der künstlichen Intelligenz zur Modellierung von Wissen. Ziel von digitalen Ontolgien ist es, Wissensdomänen in maschinenlesbarer Form verfügbar zu machen. (\cite[vgl.][7]{TACKE})Somit sind Ontologien eine zentrale Komponente in Wissenssystemen. 
 
-Die Entwicklung von WordNet begann bereits 1985 and der Universität Princeton. 1993 wurde die erste Version veröffentlicht. Die aktuelle Version, das WordNet 3.0, enthält über 155.287 manuell verfasste Einträge (WordNet Zitat).
-In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Synsets gruppiert. Der Begriff ist ein Neologismus aus synonym (dt. Synonym) und set (dt. Menge, Zusammenstellung). Die Synsets werden über Kanten verknüpft, die bestimmte semantische Relationen repräsentieren. So entsteht ein gerichteter azyklischer Graph (\cite[vgl.][12]{OLTRAMANI}), der dem Aufbau des neuronalen Netzes im menschlichen Gehirn ähnelt.
+Das \textit{Princeton WordNet} ist eine solche Ontologie, also eine als semantisches Netz organisierte, lexikalische Ressource. Die Entwicklung von WordNet begann bereits 1985 and der Universität Princeton. 1993 wurde die erste Version veröffentlicht. Die aktuelle Version, das \textit{WordNet 3.0}, enthält über 155.287 manuell verfasste Einträge in englischer Sprache. (\cite[vgl.][1]{PRINCETON}) Die aktuelle Version folgt den Linked Open Data Principles, und somit auch den Grundsätzen des Semantic Web. \textit{„Linked Open Data (LOD) is Linked Data which is released under an open licence, which does not impede its reuse for free.“}(\cite[vgl.][1]{BERNERS_LEE}). Die freie Verfügbarkeit und die Linked-Data-Struktur haben maßgeblich zur weiten Verbreitung von WordNet beigetragen. Als Metadatenformat in Wordnet wurde die weit verbreitete, standardisierte \textit{Web Ontology Language} \ac{OWL} eingesetzt.
 
-Die aktuelle Version von WordNet folgt den Linked Open Data Principles, und somit auch den Grundsätzen des Semantic Web. „Linked Open Data (LOD) is Linked Data which is released under an open licence, which does not impede its reuse for free.“(Bernes-Lee Zitat).  (…)
+\subsection{Struktur und Aufbau}
 
-- 4 Regeln nach Bernes Lee, Integration mit anderen Quellen RDF und OWL
+In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Synsets gruppiert. Der Begriff ist ein Neologismus aus synonym (dt. Synonym) und set (dt. Menge, Zusammenstellung). Die Synsets werden über Kanten verknüpft, die bestimmte semantische Relationen repräsentieren. So entsteht ein gerichteter azyklischer Graph (\cite[vgl.][12]{OLTRAMANI}), der dem Aufbau des neuronalen Netzes im menschlichen Gehirn ähnelt. Grundsätzlich setzt sich WordNet aus vier Datenbanken für die jeweiligen Wortarten Nomen, Verben, Adjektive und Adverben zusammen. Jede dieser Datenbanken beinhaltet miteinander verknüpfte Synsets. Hierbei wird jeweils auch die Arte der Verknüpfung bzw. der semantischen Relation angegeben. Abhängig von der Wortart sind verschiedene Arten von Relationen möglich. \ref{table:table2} zeigt die Relationen von Nomen und Verben in WordNet geordnet nach Häufigkeit.
 
-Grundsätzlich setzt sich WordNet aus vier Datenbanken zusammen: Nomen, Verben, Adjektive und Adverben. Jede dieser Datenbanken beinhaltet miteinander verknüpfte Synsets. Hierbei wird jeweils auch die Arte der Verknüpfung bzw. der semantischen Relation angegeben. (Linguistik Quelle)
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{cccc}
+    \toprule
+     Rang & Relationen der Nomen & Anteil  & Relationen der Verben & Anteil \\
+    \midrule
+    1 & Hyponyme/Hypernyme: & 45.5\% & Abgeleitete Form:    & 55.4\% \\
+    2 & Abgeleitete Form:   & 22.4\% & Troponyme/Hypernyme: & 31.7\% \\
+    3 & Meronyme/Holonymy:  & 13.3\% & Verbgruppe:          & 4.2\%  \\
+    4 & Wissensgebiet:      & 9.1\%  & Wissensgebiet:       & 3.0\%  \\
+    5 & Typ/Instanz: 		& 5.1\%  & Antonymy:			& 2.6\%  \\
+    6 & Pertainyme: 		& 2.9\%  & Siehe auch: 		    & 1.4\%  \\
+    7 & Antonyme: 			& 1.3\%) & Folgebeziehung: 	    & 1.0\%  \\
+	8 & Attribut: 			& 0.4\%  & Ursache: 			& 0.5\%  \\
+	9 & Partizip: 	        & 0.2\%  & -     	            & -  	 \\
+
+  \end{tabular}
+  \caption{Relationen in WordNet (\cite[vgl.][9]{MAZIARZ})}
+  \label{table:table2}
+\end{table}
+
+- Erläuterung Relationsarten
+- Adjektive und Adverben: Antonyme und Pertainyme
+
+(...)
+
+\subsection{Java APIs}
+
+Um WordNet direkt in eigene Softwareprojekte einbinden zu können, stehen allein für die Programmiersprache Java 12 verschiedenen Bibliotheken zu Verfügung. Bei der Wahl einer geeigneten Bibliothek häbt von verschiedenen Faktoren ab. Im Vergleich schneidet das \textit{Java WordNet Interface} \ac{JWI} für den allgemeinen Anwendungsfall am besten ab (\cite[vgl.][2]{FINLAYSON}). Auch gegenüber der weit verbreiteten \textit{Java WordNet Library} \ac{JWNL} bietet es nach Finlayson die folgenden überzeugenden Vorteile:
+
+\begin{itemize} 
+\item Vollumfänglicher Zugriff auf alle WordNet Ressourcen
+\item Arbeitet direkt mit den WordNet files (keine Modifizierung notwendig)
+\item Dateibasierte und In-Memory-basierte Implementierungsmöglichkeiten
+\item Anzahl der instanziierten Dictionaries kann beliebig groß gewählt werden
+\item Sehr hohe Performanz
+\item Speicherschonend und unabhängig
+\item Es wird keine config-Datei benötigt 
+\item Ausführliche Dokumentation
+\item Aktiver Support und kontinuierliche Weiterentwicklung
+\end{itemize}
 
 
+Notizen:
 
-Nomen:
--	Hyponyme/Hypernyme (Typ und Instanz)
-
--	Meronyme/Holonyme (part-of/has-part) member, part, substance
-
--	Antonyme
-
-Verben: Troponyme, Antonyme, Entails?
-
-Adjektive und Adverben: Antonyme und Pertainyme
-
-Auch DB übergreifende Relationen
-
+- Einbindung und Verwendung (Beispiele)
 
 Andere Ressourcen
 -	Thesauri
@@ -52,5 +82,6 @@ Bedeutung und Einsatz
 -	-von Menschen erstellt = inkonsistent, zu detailliert,
  
 -	Kombination mit anderen Quellen (lemon, Uby, BabelNet)
+
 
 Die Semantische Analyse ist ein entscheidender Teilschritt des Natural Language Processing. Ziel ist es, die lexikalische Semantik eines Wortes zu erfassen.
