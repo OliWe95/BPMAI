@@ -1,18 +1,19 @@
 \section{Wordnet}
 
 
-\subsection{Ontologien im Allgemeinen}
+\subsection{Ontologien im NLP}
 
 Bei der zwischenmenschlichen Kommunikation werden Informationen in codierter Form über das Medium der Sprache übertragen. Für den Erfolg des Informationstausches ist die richtige Decodierung der abstrakten Spracheinformationen, das heißt die richtige Verknüpfung eines Wortes mit dessen Bedeutung, entscheidend. 
 \begin{quote} \textit{"`In order to effectively exchange information, agents need to share a lexicon of words as well as to access the world model(s) underlying the lexicon."'} (\cite[vgl.][1]{OLTRAMANI})\end{quote} 
 Die Kommunikationspartner müssen sowohl über denselben Wortschatz als auch über ein gemeinsames Weltverständnis (Welt Modell) verfügen. Dies gilt auch für die Mensch-Maschine Kommunikation. Ein Weltmodell kann beispielsweise mittels einer Ontologie in maschinenlesbarer Form abgebildet werden. Eine Ontologie ist in der Informatik definiert als System von Informationen mit logischen Relationen (\cite[vgl.][1]{DUDEN}). Eingeführt wurde der Begriff in de 1970er Jahren auf dem Forschungsgebiet der künstlichen Intelligenz zur Modellierung von Wissen. Ziel von digitalen Ontolgien ist es, Wissensdomänen in maschinenlesbarer Form verfügbar zu machen. (\cite[vgl.][7]{TACKE})Somit sind Ontologien eine zentrale Komponente in Wissenssystemen. 
-
-Das \textit{Princeton WordNet} ist eine solche Ontologie, also eine als semantisches Netz organisierte, lexikalische Ressource. Die Entwicklung von WordNet begann bereits 1985 and der Universität Princeton. 1993 wurde die erste Version veröffentlicht. Die aktuelle Version, das \textit{WordNet 3.0}, enthält etwa 155.000 manuell verfasste Einträge in englischer Sprache. (\cite[vgl.][1]{PRINCETON}) Die aktuelle Version folgt den Linked Open Data Principles, und somit auch den Grundsätzen des Semantic Web. \textit{„Linked Open Data (LOD) is Linked Data which is released under an open licence, which does not impede its reuse for free.“}(\cite[vgl.][1]{BERNERS_LEE}). Die freie Verfügbarkeit und die Linked-Data-Struktur haben maßgeblich zur weiten Verbreitung von WordNet beigetragen. Als Metadatenformat in Wordnet wurde die weit verbreitete, standardisierte \textit{Web Ontology Language} \ac{OWL} eingesetzt.
+\par
+Das \textit{Princeton WordNet} ist eine solche Ontologie, also eine als semantisches Netz organisierte, lexikalische Ressource. Die Entwicklung von WordNet begann bereits 1985 and der Universität Princeton. 1993 wurde die erste Version veröffentlicht. Die aktuelle Version, das \textit{WordNet 3.0}, enthält etwa 155.000 manuell verfasste Einträge in englischer Sprache. (\cite[vgl.][1]{PRINCETON}) Die aktuelle Version folgt den Linked Open Data Principles, und somit auch den Grundsätzen des Semantic Web. \textit{„Linked Open Data (LOD) is Linked Data which is released under an open licence, which does not impede its reuse for free.“}(\cite[vgl.][1]{BERNERS_LEE}). Die freie Verfügbarkeit und die Linked-Data-Struktur haben maßgeblich zur weiten Verbreitung von WordNet beigetragen. Als Metadatenformat in Wordnet wurde die weit verbreitete, standardisierte \textit{Web Ontology Language} \ac{OWL} eingesetzt. Im \ac{NLP} wird auf WordNet für die Erstellung der semantischen Annotationen benötigt. Es dient als essentielle Ressource für überwacht lernende Algorithmen.
+\par
 
 \subsection{Struktur und Aufbau}
 
-In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Synsets gruppiert. Der Begriff ist ein Neologismus aus synonym (dt. Synonym) und set (dt. Menge, Zusammenstellung). Die Synsets werden über Kanten verknüpft, die bestimmte semantische Relationen repräsentieren. So entsteht ein gerichteter azyklischer Graph (\cite[vgl.][12]{OLTRAMANI}), der dem Aufbau des neuronalen Netzes im menschlichen Gehirn ähnelt. Grundsätzlich setzt sich WordNet aus vier Datenbanken für die jeweiligen Wortarten Nomen, Verben, Adjektive und Adverben zusammen. Jede dieser Datenbanken beinhaltet miteinander verknüpfte Synsets. Hierbei wird jeweils auch die Arte der Verknüpfung bzw. der semantischen Relation angegeben. Abhängig von der Wortart sind verschiedene Arten von Relationen möglich. \ref{table:table2} zeigt die Relationen von Nomen und Verben in WordNet geordnet nach Häufigkeit.
-
+In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Synsets gruppiert. Der Begriff ist ein Neologismus aus \textit{synonym} (dt. Synonym) und \textit{set} (dt. Menge, Zusammenstellung).Die Synsets werden über Kanten verknüpft, die bestimmte semantische Relationen repräsentieren. So entsteht ein gerichteter azyklischer Graph (\cite[vgl.][12]{OLTRAMANI}), der dem Aufbau des neuronalen Netzes im menschlichen Gehirn ähnelt.Grundsätzlich setzt sich WordNet aus vier Datenbanken für die jeweiligen Wortarten Nomen, Verben, Adjektive und Adverben zusammen. Jede dieser Datenbanken beinhaltet miteinander verknüpfte Synsets. Hierbei wird jeweils auch die Arte der Verknüpfung bzw. der semantischen Relation angegeben. Abhängig von der Wortart sind verschiedene Arten von Relationen möglich. \ref{table:table2} zeigt die Relationen von Nomen und Verben in WordNet geordnet nach Häufigkeit.
+\par
 \begin{table}[h!]
   \centering
   \begin{tabular}{ccccc} %Hier muss für jede Spalte ein c hin -> Dump wegen mismatch von definierter und auftretender Spaltenanzahl
@@ -33,11 +34,32 @@ In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Syns
   \caption{Relationen in WordNet (\cite[vgl.][9]{MAZIARZ})}
   \label{table:table2}
 \end{table}
+\par
+
 
 - Erläuterung Relationsarten
-- Adjektive und Adverben: Antonyme und Pertainyme
 
 (...)
+
+
+
+\par
+\subsection{Word Sense Disambiguation}
+
+Die meisten Worte einer Sprache haben mehrere Bedeutungen. Die richtige Wortbedeutung ergibt sich folglich erst aus dem Kontext der Wortverwendung. Um die Wortbedeutung maschinell zu erfassen, sind ein \textit{Sense Inventory} und ein klassifizierender Algorithmus notwendig. Bei einem solchen Sense Inventory handelt es sich um eine Informationsquelle, in der die verschiedenen Wortbedeutungen einsehbar sind. WordNet kann diese Rolle übernehmen. Ein mehrdeutiges Wort ist in WordNet Mitglied in verschiedenen Synsets, aus deren hypernymen Synsets sich dann die verschiedenen Wortbedeutungen ableiten lassen. \ref{fig:WSD} zeigt einen Beispielsatz, indem die Bedeutung des englischen Wortes \textit{coffee} ermittelt werden soll.
+\par 
+
+\begin{wrapfigure}{r}{15cm}
+\includegraphics[width=15cm]{pictures/WSD.png}
+\caption{WSD Klassifikation mit WordNet (eigene Darstellung)}
+\label{fig:WSD}
+\end{wrapfigure}
+
+\par
+Der Klassifikationsalogrithmus, hier als Blackbox dargestellt, nutzt die hierarchische Struktur von WordNet um die verschiedenen Bedeutungen nachzuschlagen. Daraufhin wählt er die wahrscheinlichste Bedeutung im Satzzusammenhang aus. In diesem Fall wählt er korrekt die Bedeutung \textit{beverage} aus.
+\par
+Somit ist Word Sense Disambiguation nichts anderes als ein Klassifikationsproblem, das basierend auf gewissen Eingabeparametern eine Einordnung vornimmt. Prinzipiell kann jeder generische, maschinell lernende Klassifikationsalgorithmus zur Lösung herangezogen werden \cite[vgl.][326]{YAROWSKY}. Als am verlässlichsten stellen jedoch Kombinationen verschiedener Ranking-Algorithem heraus. Die geringe Menge an verfügbaren Trainingsdaten stellt hierbei jedoch immernoch ein Problem dar.
+
 
 \subsection{Java APIs}
 
@@ -55,7 +77,6 @@ Um WordNet direkt in eigene Softwareprojekte einbinden zu können, stehen allein
 
 - Einbindung und Verwendung (Beispiele)
 
-
 \subsection{Zukünftige Entwicklungen}
 
 Notizen:
@@ -67,6 +88,9 @@ Andere Ressourcen
 Sätze, semantishce Rollenzuweisung frames vs. Synsets, Fokus auf Sätzen)
 
 -	PropBank, ConceptNet
+
+
+
 
 Bedeutung und Einsatz
 
@@ -81,6 +105,3 @@ Bedeutung und Einsatz
 -	-von Menschen erstellt = inkonsistent, zu detailliert,
  
 -	Kombination mit anderen Quellen (lemon, Uby, BabelNet)
-
-
-Die Semantische Analyse ist ein entscheidender Teilschritt des Natural Language Processing. Ziel ist es, die lexikalische Semantik eines Wortes zu erfassen.
