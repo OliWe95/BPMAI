@@ -1,0 +1,48 @@
+\section{FrameNet}
+
+\subsection{Semantische Frames}
+
+FrameNet ist eine lexikalische Ressource, die basierend auf der sprachwissenschaftlichen Theorie der Frame-Semantik entwickelt in der Universität Berkley entwickelt wurde. 
+\par
+Um ein Wort oder eine abstrakte Idee begreifen zu können, aktiviert das menschliche Gehirn einen Deutungsrahmen (engl. \textit{frame}). Der Inhalt dieses Frames leitet sich aus dem bestehenden Wissens- und Erfahrungsschatz der jeweiligen Person ab. Bei dem Wort \textit{tanzen} assoziiert der Leser in der Regel direkt in Verbindung stehende Ideen wie Musik, Choreografie und sich bewegende Menschen. Ein Frame beinhaltet folglich ein ganzes Bündel an Informationen.
+\par
+Auslöser für die Aktivierung eines Frames sind \textit{Lexical Units}. Hierbei handelt es sich um Wort-Sinnpaare, also um ein Wort und ganz konkretes Verständnis dieses Wortes. Beispielsweise kann das Wort \textit{treffen} im Sinne von \textit{begegnen} den Frame \textit{Begegnung} aktivieren, mit dem in der Regel zwei Personen, Händeschütteln oder Grußworte assoziiert werden. \textit{Treffen} im Sinne von \textit{ein Ziel treffen} erweckt ganz andere Erinnerungen und somit einen anderen Frame. Bei der aktivierenden Lexical Unit muss es sich jedoch nicht zwangsläufig um ein einzelnes Wort halten. Auch Ausdrücke mit mehreren Wörtern können eine Lexical Unit bilden.
+\par
+Als Valenz wird die Fähigkeit eines Wortes bezeichnet, andere Wörter an sich zu binden. Ein Valenzmuster ist somit eine syntaktische Schablone für den üblichen Gebrauch eines Wortes. Wird ein Wort in einem Satz ohne Berücksichtung der in der jeweiligen Sprache üblichen Valenzmuster eingebaut, klingt das Resultat falsch oder ungewohnt.
+\par
+Die mit einem Frames assoziierten Vokabeln werden als \textit{Frame Elemente} bezeichnet. Über sie steht der Frame in Verbindung mit anderen Frames. 
+
+\subsection{Aufbau und Struktur}
+
+Ähnlich wie WordNet, ist FrameNet ebenfalls als azyklischer Graph strukturiert. Die Knoten bilden jedoch nicht Synsets, sondern Frames under deren Frame Elemente. Die Beziehungen zwischen den Frames sind die Kanten. Die Beziehungstypen sind denen in WordNet allerdings ähnlich.
+
+Die Vererbungsrelation \textit{Inheritance} stellt eine IS-A-Relatione dar. Jedes Frame Element im Eltern-Frame ist mit koresspondierenden Frame-Elementen im Kind-Frame verbunden.
+
+subframe:
+subevent des complexen/abstrakten Eltern frames
+
+"using":
+Nicht ale elter-FE müssen mit kind Fe verbunden sein, eltern-frame als hintergrund
+
+- weniger granular als wordnet
+
+- nicht wortbasiert
+- Frames und subframes
+- einzigartige trainingsdaten für sematic role labelling
+
+sinnvoll für zwei usecases:
+Beispiele für übliche Verwendung eines wortes
+- voll text analyse
+
+
+\subsection{Verwendung}
+Semantic Role Labelling --> Semaphor Java
+
+
+\subsection{Java API}
+
+
+
+http://www.nltk.org/howto/framenet.html
+ 
+ 
