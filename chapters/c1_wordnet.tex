@@ -10,7 +10,7 @@ Die Kommunikationspartner müssen sowohl über denselben Wortschatz als auch üb
 Das \textit{Princeton WordNet} ist eine solche Ontologie, also eine als semantisches Netz organisierte, lexikalische Ressource. Die Entwicklung von WordNet begann bereits 1985 and der Universität Princeton. 1993 wurde die erste Version veröffentlicht. Die aktuelle Version, das \textit{WordNet 3.0}, enthält etwa 155.000 manuell verfasste Einträge in englischer Sprache. (\cite[vgl.][1]{PRINCETON}) Die aktuelle Version folgt den Linked Open Data Principles, und somit auch den Grundsätzen des Semantic Web. \textit{„Linked Open Data (LOD) is Linked Data which is released under an open licence, which does not impede its reuse for free.“}(\cite[vgl.][1]{BERNERS_LEE}). Die freie Verfügbarkeit und die Linked-Data-Struktur haben maßgeblich zur weiten Verbreitung von WordNet beigetragen. Als Metadatenformat in Wordnet wurde die weit verbreitete, standardisierte \textit{Web Ontology Language} \ac{OWL} eingesetzt. Im \ac{NLP} wird auf WordNet für die Erstellung der semantischen Annotationen benötigt. Es dient als essentielle Ressource für überwacht lernende Algorithmen.
 \par
 
-\subsection{Struktur und Aufbau}
+\subsection{Aufbau und Struktur}
 
 In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Synsets gruppiert. Der Begriff ist ein Neologismus aus \textit{synonym} (dt. Synonym) und \textit{set} (dt. Menge, Zusammenstellung).Die Synsets werden über Kanten verknüpft, die bestimmte semantische Relationen repräsentieren. So entsteht ein gerichteter azyklischer Graph (\cite[vgl.][12]{OLTRAMANI}), der dem Aufbau des neuronalen Netzes im menschlichen Gehirn ähnelt.Grundsätzlich setzt sich WordNet aus vier Datenbanken für die jeweiligen Wortarten Nomen, Verben, Adjektive und Adverben zusammen. Jede dieser Datenbanken beinhaltet miteinander verknüpfte Synsets. Hierbei wird jeweils auch die Arte der Verknüpfung bzw. der semantischen Relation angegeben. Abhängig von der Wortart sind verschiedene Arten von Relationen möglich. \ref{table:table2} zeigt die Relationen von Nomen und Verben in WordNet geordnet nach Häufigkeit.
 \par
@@ -36,19 +36,7 @@ In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Syns
 \end{table}
 \par
 
-
-- Erläuterung Relationsarten
-- Hierarchie (Vertikal) is-a-relations Hypernym (nltk quelle), keine pos grenzenübertretung
-- nur verben und noben haben hierarchien
-- nicht domain spezifisch
-- am meisten für WSD eingesetzt
-
-
-
-
-(...)
-
-
+Der bei Nomen am häufigsten auftretende Beziehungstyp ist das Hyponym/Hypernym. Diese Beziehung strukturiert die Synsets hierarchisch in übergordnete Elter-Synsets (Hypernym) und untergeordnete Kind-Synsets. Es handelt sich also um eine IS-A-Beziehung. Das äquivalent zu Hyponymen in der Kategorie Verben wird als Troponym bezeichnet. Abgleitete Formen verbinden Synsets über Wortarten-Grenzen hinweg. Beispielsweise ist das Verb \textit{run} mit dem Nomen \textit{run} über die Beziehung der abgeleiteten Form verbunden. Ein weiterer häufiger Beziehungstyp sind Meronyme- und Holonyme-Beziehungen. Sie stellen die Part-Of-Beziehung (Meronym) und deren Gegenstück dar.
 
 \par
 \subsection{Word Sense Disambiguation}
@@ -82,42 +70,4 @@ Um WordNet direkt in eigene Softwareprojekte einbinden zu können, stehen allein
 \item Ausführliche Dokumentation, aktiver Support und kontinuierliche Weiterentwicklung
 \end{itemize}
 
-- Einbindung und Verwendung (Beispiele)
-
-\subsection{Zukünftige Entwicklungen}
-
-Notizen:
-
-Andere Ressourcen
--	Thesauri
-
--	FrameNet (Berkley, 10.000 Wortbedeutungen, 170.000
-Sätze, semantishce Rollenzuweisung frames vs. Synsets, Fokus auf Sätzen)
-
--	PropBank, ConceptNet
-
-
-
-
-Bedeutung und Einsatz
-
-nltk quelle:
-- WSD, info retrieval, text classification, text summarization, machine translation cross word puzzzle generation, distanz zwischen worten ermitteln
-
-Distanz messen 4 Methoden:
-path-based: schritte
-information content based: shared info content
-feature-based: zahl der gleichen charakteristika
-hybride: combination
-
--	Weit verbreitet, viele Subsets (Verbnet), in unterschiedlichen Sprachen
-
--	WSD (Word Sense Disambiguation) de facto standard , die Richtige Bedeutung eines mehrdeutigen Wortes in gegebenem Kontext bestimmen
-
--	Wissensbasiert (Wordnet) vs. AI (wenig Trainingsdaten)
-
--	+ domänenunabhängig, umfangreich, öffentlich zugänglich, packages für versch. Programmiersprachen (NLTK)
-
--	-von Menschen erstellt = inkonsistent, zu detailliert,
- 
--	Kombination mit anderen Quellen (lemon, Uby, BabelNet)
+Neben der direkten Einbindung von Wordnet über eine Java API, wird Wordnet auch von Standard-Software-Toolkits wie dem Standford CoreNLP oder dem NLTK als Informationsquelle genutzt.
