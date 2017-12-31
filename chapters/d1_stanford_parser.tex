@@ -49,3 +49,9 @@ Alle Funktionen des Stanford CoreNLP Toolkits können unter einer Einheitlichen 
 Die Basis dafür bildet ein Annotaion Objekt, welches reinen Text als Eingabe akzeptiert und nach Ausführung einen annotierten Text ausgibt. Ein mögliches Ausgabeformat für den Annotierten Text ist unter Anderem XML. Über Annotater werden die . Diese können über den Konstruktor des Annotation Objekts eingebunden werden.\par
 Weiterhin besteht die Möglichkeit eigene Logik anhand eigener Annotator auszuführen. Hierzu muss ein Interface implementiert werden und der Name der Klasse angegeben. deren Instanzierung erfolgt über reflection 
 
+\subsection{Weitere Standard-NLP-Tookits}
+
+Neben dem Stanford CoreNLP gibt es noch zwei weitere weit verbreitete Standards. Das \ac{NLTK} ist eine Sammlung von Programmmodulen zur Verarbeitung von natürlicher Sprache. Ebenso wie beim Stanford CoreNLP handelt es sich um einen Standard Bibliothek, die grundlegende \ac{NLP} Aufgaben abdeckt. Das \ac{NLTK} steht unter der GLP Open Source Licence und wurde für die Programmiersprache Pyhon entwickelt. Es greift auf diverse lexikalische Ressourcen wie WordNet, FrameNet aber auch Wikipedia zurück. Das \ac{NLTK} verfügt im Gegensatz zum Stanford CoreNLP über einfach handhabbare Visualisierungsmodule. Das StanfordCoreNLP kann zwar in Python, das NLTK aber nicht in Java verwendet werden.
+\par
+Eine weitere Alternative stelle das Apache Projekt OpenNLTK dar. Die Java-Bibliothek ist Machine-Learning basiert und erfüllt ebenfalls die gängigen NLP Aufgaben.
+
