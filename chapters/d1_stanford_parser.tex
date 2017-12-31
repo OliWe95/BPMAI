@@ -1,24 +1,51 @@
 \section{Stanford Parser}
-- Geschichte der Natural language process group\par
-- Java Architektur \par 
-- auch andere Sprachen \par
 
-Die Stanford \ac{NLP} Group, ein Team aus Software- und Linguistik Experten, entwickelt quelloffene Software zur Anwendung von NLP. Es existieren verschiedene Softwares für verschiedene Funktionalitäten, wovon die wesentlichen auch in einer zentralen Suite, dem CoreNLP Kit enthalten sind.
 
-Im folgenden soll der Stanford Parser eingeführt werden. Dabei handelt es sich um ein quelloffenes Tool zur Analyse von Natürlicher Sprache, was auch als \ac{NLP} bezeichnet wird. Entwickelt wurde der Stanford Parser von der Stanford \ac{NLP} Group, einem Team aus Software- und Linguistik Experten. Zur Verfügung gestellt wird der Stanford Parser als Java API.\par
-Das grundlegende Prinzip des Stanford Parsers (eigentlich Stanford CoreNLP) besteht darin, den zu analysierenden Text in einzelne Elemente, also etwa Worte, zu zerlegen und diese mit Meta-Annotationen zu versehen. Zu diesem Zweck steht eine individuell erweiterbare Menge an Funktionen zur Auswahl. Diese Funktionen basieren auf unterschiedlichen Herangehensweisen, weswegen manche bereits eine lexikalische Analyse beinhalten, andere jedoch nicht.
-Die Im Standard enthaltenen Funktionen werden weiterhin aufgeführt.
+Die Stanford \ac{NLP} Group, ein Team aus Software- und Linguistik Experten, entwickelt quelloffene Software zur Anwendung von \ac{NLP}. Resultat dieser Entwicklung ist eine Menge von Programmen, die jeweils eigenständige \ac{NLP} Probleme lösen und als Software mit eigener Distribution verfügbar sind. Darunter befindet sich der sogenannte Stanford Parser. Dieser ist, neben anderen Modulen, aber auch Bestandteil der Stanford CoreNLP Suite, einer seit 2010 verfügbaren, vereinigten Distribution der verschiedenen \ac{NLP} Komponenten mit einheitlicher Schnittstelle.\par
+Dieses Kapitel soll die einzelnen Komponenten und ihre Funktionsweise grundlegend erläutern, insbesondere den Parser. Zu diesem Zweck wird zur Erläuterung der meisten Funktionen eine Analyse-Visualisierung folgenden Minimalbeispiels verwendet: "'The student writes his paper at the DHBW. After he is finished, he hands it in."'. Weiterhin soll die Verwendung des Core NLP Toolkits mit Java thematisiert werden. 
+
+\subsection{Parser}
+\begin{wrapfigure}{r}{7cm}
+\includegraphics[width=7cm]{pictures/Parser.png}
+\caption{Visualisierung der Erweiterten Abhängikeiten am Beispiel}
+\label{fig:ENHDEPS}
+\end{wrapfigure}
+Das grundlegende Prinzip des Stanford Parsers  besteht darin, den zu analysierenden Text in einzelne Elemente, also etwa Worte, zu zerlegen und diese mit Meta-Annotationen zu versehen.
 
 \subsection{Part-of-Speech}
+\begin{wrapfigure}{r}{7cm}
+\includegraphics[width=7cm]{pictures/POS.png}
+\caption{Visualisierung der POS am Beispiel}
+\label{fig:POS}
+\end{wrapfigure}
 Als \ac{POS} wird die Art eines Wortes bezeichnet. Ein Wort kann beispielsweise ein Nomen, Verb oder Adjektiv sein. Der Stanford Parser verfügt über eine Funktionalität, die \ac{POS} Annotationen zu den einzelnen Worten des analysierten Texts hinzufügt.\par
 Zu diesem Zweck werden vorhergehende und folgende Wörter im jeweiligen Satz betrachtet. Realisiert wird diese Funktionalität über ein dependency Network. (\cite[vgl.][1]{POSTAGGER})
 
 \subsection{Named-Entity-Recognition}
-Ein Bestandteil natürlicher Sprache ist die Erwähnung von Namen etwa bestimmter Orte, Personen oder auch Unternehmen. Daher verfügt das CoreNLP Kit über die \ac{NER}. Mit Hilfe dieser Funktionalität können derartige Wörter erkannt und in Bezug auf die bezeichnete Entität klassifiziert werden. Beispielsweise könnte ein Wort mit der Annotation "'Organization"' versehen werden, was darauf hinweist, dass es sich dabei um ein Unternehmen handelt.
+\begin{wrapfigure}{r}{7cm}
+\includegraphics[width=7cm]{pictures/NER.png}
+\caption{Visualisierung der NER am Beispiel}
+\label{fig:NER}
+\end{wrapfigure}
+Ein Bestandteil natürlicher Sprache ist die Erwähnung von Eigennamen etwa bestimmter Orte, Personen oder auch Organisationen. Daher verfügt das CoreNLP Kit über die \ac{NER}. Mit Hilfe dieser Funktionalität können derartige Wörter erkannt und in Bezug auf die Entität, welche sie bezeichnen,  klassifiziert werden. Zu diesem Zweck existieren die vier Kategorien person(PER), location(LOC), organization(ORG) und miscellaneous(MISC) (\cite[vgl.][4]{STANFORDNER}).\par
+Beispielsweise könnte ein Wort mit der Annotation "'ORG"' versehen werden, was darauf hinweist, dass es sich dabei um den Namen einer Organisation handelt. So zeigt Abbildung \ref{fig:NER}, dass die Bezeichnung "'DHBW"' im Beispielsatz von der \ac{NER} als Organisation erkannt wird.\par
+Zur Implementierung dieses Features wurde eine lexikalische Datenbasis verwendet, weswegen nicht alle Namen als solche erkannt werden können. Werden bestimmte, der \ac{NER} unbekannte Namen im Text erwartet, können diese auch regelbasiert anhand eines frei definierbaren Regulären Ausdrucks identifiziert werden (REGEXNER).
+
+\subsection{Coreference Resolution}
+\begin{wrapfigure}{r}{7cm}
+\includegraphics[width=7cm]{pictures/coref.png}
+\caption{Visualisierung der Coreference Resolution am Beispiel}
+\label{fig:COREF}
+\end{wrapfigure}
+Ein Text in natürlicher Sprache bezieht sich auf Entitäten nicht nur anhand deren eigentlicher Bezeichnung. In der Regel werden diese Bezeichnungen in derartigen Bezügen auch durch Artikel oder Pronomina ersetzt. Dies kann insbesondere auch satzübergreifend geschehen. Das CoreNLP Kit ermöglicht über die Coreference Resolution eine Auflösung der Beziehungen zwischen den bezeichneten Entitäten und ihren jeweiligen substitutiven Elementen.\par
+Abbildung \ref{fig:COREF} zeigt die Bezüge der Pronomina zu ihren jeweiligen Entitäten über beide Sätze des Beispiels hinweg. 
 
 \subsection{Sentiment Analysis}
 Neben reinem Inhalt verfügt ein Satz in natürlicher Sprache auch über eine Stimmung. Diese äußert sich vorrangig anhand der Auswahl der Worte und deren Konnotation. Das CoreNLP Kit bietet daher die Sentiment Analysis. Hiermit können Sätze bezüglich ihrer Stimmung als "'negativ"', "'neutral"' oder "'positiv"' annotiert werden.\par
 Umgesetzt wird diese Funktionalität unter Anwendung eines rekursiven Neuronalen Netzes, also eines Deep Learning Algorithmus. Zum Training des Netzes wurde die "'Stanford Sentiment Treebank"' verwendet,eine Sammlung von Begriffen versehen mit der jeweiligen Konnotation (\cite[vgl.][1]{SOCHERSENTIMENT}).
 
-\subsection{Coreference Resolution}
-Ein Text in natürlicher Sprache bezieht sich auf Entitäten nicht nur anhand deren eigentlicher Bezeichnung. In der Regel werden diese Bezeichnungen in derartigen Bezügen auch durch Artikel oder Pronomina ersetzt. Dies kann insbesondere auch satzübergreifend geschehen. Das CoreNLP Kit ermöglicht über die Coreference Resolution eine Auflösung der Beziehungen zwischen den bezeichneten Entitäten und ihren jeweiligen substitutiven Elementen. 
+\subsection{Java API}
+Alle Funktionen des Stanford CoreNLP Toolkits können unter einer Einheitlichen \ac{API} adressiert werden, welche ursprünglich für die Verwendung unter Java konzipiert wurde. Jedoch existieren auch Implementierungen für andere Sprachen, wie etwa Python, Ruby oder Scala. Es soll weiterhin die grundlegende Funktionsweise dieser \ac{API} erläutert werden.\par
+Die Basis dafür bildet ein Annotaion Objekt, welches reinen Text als Eingabe akzeptiert und nach Ausführung einen annotierten Text ausgibt. Ein mögliches Ausgabeformat für den Annotierten Text ist unter Anderem XML. Über Annotater werden die . Diese können über den Konstruktor des Annotation Objekts eingebunden werden.\par
+Weiterhin besteht die Möglichkeit eigene Logik anhand eigener Annotator auszuführen. Hierzu muss ein Interface implementiert werden und der Name der Klasse angegeben. deren Instanzierung erfolgt über reflection 
+
