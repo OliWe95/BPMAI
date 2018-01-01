@@ -10,7 +10,7 @@ Auslöser für die Aktivierung eines Frames sind \textit{Lexical Units}. Hierbei
 \par
 Als Valenz wird die Fähigkeit eines Wortes bezeichnet, andere Wörter an sich zu binden. Ein Valenzmuster ist somit eine syntaktische Schablone für den üblichen Gebrauch eines Wortes. Wird ein Wort in einem Satz ohne Berücksichtung der in der jeweiligen Sprache üblichen Valenzmuster eingebaut, klingt das Resultat falsch oder ungewohnt.
 \par
-Die mit einem Frames assoziierten Vokabeln werden als \textit{Frame Elemente} bezeichnet. Über sie steht der Frame in Verbindung mit anderen Frames. 
+Die mit einem Frame assoziierten Vokabeln werden als \textit{Frame Elemente} bezeichnet. Über sie steht der Frame in Verbindung mit anderen Frames. 
 
 \subsection{Aufbau und Struktur}
 
@@ -22,7 +22,7 @@ Die Vererbungsrelation \textit{Inheritance} stellt eine IS-A-Relation dar. Jedes
 
 \subsection{Semantic Role Labeling}
 
-Ein Hauptanwendungsgebiet für FrameNet ist das \ac{SRL}. Hierbei wird einem Satzglied, in der Linguistik auch als \textit{Argument} bezeichnet, eine abstrakte Rolle zugewiesen. Die semantische Satzaussage, das \textit{Prädikat}, ergibt sich dann aus der Summe der Argumenten. Aus diesem flachen semantischen Repräsentationslevel können dann Informationen extrahiert werden.
+Ein Hauptanwendungsgebiet für FrameNet ist das \ac{SRL}. Hierbei wird einem Satzglied, in der Linguistik auch als \textit{Argument} bezeichnet, eine abstrakte Rolle zugewiesen. Die semantische Satzaussage, das \textit{Prädikat}, ergibt sich dann aus der Summe der Argumente. Aus diesem flachen semantischen Repräsentationslevel können dann Informationen extrahiert werden.
 \par
 Ein Problem des \ac{SRL} ist die einheitliche Definition von Rollen. Abhängig vom Abstraktonsgrad können konkrete Rollendefinitionen (\textit{Deep Roles}) oder abstrakte Rollendefinitionen (\textit{Thematic Roles}) verwendet werden. Typische Beispiele für thematische Rollen sind beispielsweise (\cite[vgl.][379]{JURAFSKY}):
 \begin{itemize}
@@ -33,7 +33,7 @@ Ein Problem des \ac{SRL} ist die einheitliche Definition von Rollen. Abhängig v
 \end{itemize}
 Die tatsächlich verwendeten Rollendefinitionen unterschieden sich von Implementierung zu Implementierung.
 
-Die semantischen Rollen stehen nicht zwangsläufig in Beziehung zu der syntaktischen Rolle der Satzglieder. \ref{fig:SEMAFOR1} zeigt den Manager als Subjekt des Satzes. \ref{fig:SEMAFOR1} zeigt die E-Mail als Subjekt des Satzes. In beiden Fällen erfüllt der Manager die Rolle des Authors und die E-Mail die Rolle des Textes.
+Die semantischen Rollen stehen nicht zwangsläufig in Beziehung zu der syntaktischen Rolle der Satzglieder. Abbildung  \ref{fig:SEMAFOR1} zeigt den Manager als Subjekt des Satzes. Abbildung \ref{fig:SEMAFOR2} zeigt die E-Mail als Subjekt des Satzes. In beiden Fällen erfüllt der Manager die Rolle des Authors und die E-Mail die Rolle des Textes.
 \par
 \begin{wrapfigure}{r}{8cm}
 \includegraphics[width=7cm]{pictures/SEMAFOR1.png}
@@ -44,7 +44,7 @@ Die semantischen Rollen stehen nicht zwangsläufig in Beziehung zu der syntaktis
 \label{fig:SEMAFOR2}
 \end{wrapfigure}
 \par
-Eine solche Veränderung der Argumentreihenfolge wird als \textit{Diathesis Alternation} bezeichnet. Die Menge der möglichen Argumentfolgen die zu einem bestimmten Verb gehören werden als \textit{Thematic Grid} oder \textit{Case Frame} bezeichnet. In FrameNet entspricht dies also der Summe der möglichen Valenzmuster. Die zu füllenden Rollen eies Frames in FrameNet entsprechen den Frame Elements (\cite[vgl.][383]{JURAFSKY}).
+Eine solche Veränderung der Argumentreihenfolge wird als \textit{Diathesis Alternation} bezeichnet. Die Menge der möglichen Argumentfolgen die zu einem bestimmten Verb gehören werden als \textit{Thematic Grid} oder \textit{Case Frame} bezeichnet. In FrameNet entspricht dies also der Summe der möglichen Valenzmuster. Die zu füllenden Rollen eines Frames in FrameNet entsprechen den Frame Elements (\cite[vgl.][383]{JURAFSKY}).
 \par
-\ac{SRL} kann automatisch durchgeführt werden. Es existieren einige Systeme \ac{SRL} die überwachte Machine Learning Algorithmen auf Basis von FrameNet durchführen. Beispiele hierfür sind SEMAFOR, MatePlus und Open-SESAME. Der modernste und performanteste Ansatz ist das python basierte System Open-SESAME (\cite[vgl.][8]{SWAYAMDIPTA}), das auch ohne vorausgehendes syntaktisches Parsen State-of-the-Art-Qualität liefert.
-Neben FrameNet eignen sich auch andere lexikalishce Ressourcen für \ac{SRL}. Auch die PropBank und VerbNet kommen hierfür in Frage.
+\ac{SRL} kann automatisch durchgeführt werden. Es existieren einige \ac{SRL} Systeme, die überwachte Machine Learning Algorithmen auf Basis von FrameNet durchführen. Beispiele hierfür sind SEMAFOR, MatePlus und Open-SESAME. Der modernste und performanteste Ansatz ist das python basierte System Open-SESAME (\cite[vgl.][8]{SWAYAMDIPTA}), das auch ohne vorausgehendes syntaktisches Parsen State-of-the-Art-Qualität liefert.
+Neben FrameNet eignen sich auch andere lexikalische Ressourcen für \ac{SRL}. Auch die PropBank und VerbNet kommen hierfür in Frage.
