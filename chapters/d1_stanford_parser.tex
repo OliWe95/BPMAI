@@ -1,10 +1,11 @@
 \section{Stanford Parser}
-
+\label{sec:stanfordparser}
 
 Die Stanford \ac{NLP} Group, ein Team aus Software- und Linguistik Experten, entwickelt quelloffene Software zur Anwendung von \ac{NLP}. Resultat dieser Entwicklung ist eine Menge von Programmen, die jeweils eigenständige \ac{NLP} Probleme lösen und als Software mit eigener Distribution verfügbar sind. Darunter befindet sich der sogenannte Stanford Parser. Dieser ist, neben anderen Modulen, aber auch Bestandteil der Stanford CoreNLP Suite, einer seit 2010 verfügbaren, vereinigten Distribution der verschiedenen \ac{NLP} Komponenten mit einheitlicher Schnittstelle.\par
-Dieses Kapitel soll die einzelnen Komponenten und ihre Funktionsweise grundlegend erläutern, insbesondere den Parser. Zu diesem Zweck wird zur Erläuterung der meisten Funktionen eine Analyse-Visualisierung folgenden Minimalbeispiels verwendet: "'The student writes his paper at the DHBW. After he is finished, he hands it in."'. Weiterhin soll die Verwendung des Core NLP Toolkits mit Java thematisiert werden. 
+Dieses Kapitel soll die einzelnen Komponenten und ihre Funktionsweise grundlegend erläutern, insbesondere den Parser. Zu diesem Zweck wird zur Erläuterung der meisten Funktionen eine Analyse-Visualisierung folgenden Minimalbeispiels verwendet: "'The student writes his paper at the DHBW. After he is finished, he hands it in."'. Diese Visualisierung wird anhand eines Tools der Stanford \ac{NLP} Group vorgenommen. Weiterhin soll die Verwendung des Core NLP Toolkits mit Java thematisiert werden. 
 
 \subsection{Parser}
+\label{subsec:parser}
 \begin{wrapfigure}{r}{7cm}
 \includegraphics[width=7cm]{pictures/Parser.png}
 \caption{Visualisierung der Erweiterten Abhängikeiten am Beispiel}
@@ -13,6 +14,7 @@ Dieses Kapitel soll die einzelnen Komponenten und ihre Funktionsweise grundlegen
 Das grundlegende Prinzip des Stanford Parsers  besteht darin, den zu analysierenden Text in einzelne Elemente, also etwa Worte, zu zerlegen und diese mit Meta-Annotationen zu versehen.
 
 \subsection{Part-of-Speech}
+\label{subsec:pos}
 \begin{wrapfigure}{r}{7cm}
 \includegraphics[width=7cm]{pictures/POS.png}
 \caption{Visualisierung der POS am Beispiel}
@@ -22,6 +24,7 @@ Als \ac{POS} wird die Art eines Wortes bezeichnet. Ein Wort kann beispielsweise 
 Zu diesem Zweck werden vorhergehende und folgende Wörter im jeweiligen Satz betrachtet. Realisiert wird diese Funktionalität über ein dependency Network. (\cite[vgl.][1]{POSTAGGER})
 
 \subsection{Named-Entity-Recognition}
+\label{subsec:ner}
 \begin{wrapfigure}{r}{7cm}
 \includegraphics[width=7cm]{pictures/NER.png}
 \caption{Visualisierung der NER am Beispiel}
@@ -32,6 +35,7 @@ Beispielsweise könnte ein Wort mit der Annotation "'ORG"' versehen werden, was 
 Zur Implementierung dieses Features wurde eine lexikalische Datenbasis verwendet, weswegen nicht alle Namen als solche erkannt werden können. Werden bestimmte, der \ac{NER} unbekannte Namen im Text erwartet, können diese auch regelbasiert anhand eines frei definierbaren Regulären Ausdrucks identifiziert werden (REGEXNER).
 
 \subsection{Coreference Resolution}
+\label{subsec:coref}
 \begin{wrapfigure}{r}{7cm}
 \includegraphics[width=7cm]{pictures/coref.png}
 \caption{Visualisierung der Coreference Resolution am Beispiel}
@@ -41,10 +45,12 @@ Ein Text in natürlicher Sprache bezieht sich auf Entitäten nicht nur anhand de
 Abbildung \ref{fig:COREF} zeigt die Bezüge der Pronomina zu ihren jeweiligen Entitäten über beide Sätze des Beispiels hinweg. 
 
 \subsection{Sentiment Analysis}
+\label{subsec:sentiment}
 Neben reinem Inhalt verfügt ein Satz in natürlicher Sprache auch über eine Stimmung. Diese äußert sich vorrangig anhand der Auswahl der Worte und deren Konnotation. Das CoreNLP Kit bietet daher die Sentiment Analysis. Hiermit können Sätze bezüglich ihrer Stimmung als "'negativ"', "'neutral"' oder "'positiv"' annotiert werden.\par
 Umgesetzt wird diese Funktionalität unter Anwendung eines rekursiven Neuronalen Netzes, also eines Deep Learning Algorithmus. Zum Training des Netzes wurde die "'Stanford Sentiment Treebank"' verwendet,eine Sammlung von Begriffen versehen mit der jeweiligen Konnotation (\cite[vgl.][1]{SOCHERSENTIMENT}).
 
 \subsection{Java API}
+\label{subsec:corenlpjava}
 Alle Funktionen des Stanford CoreNLP Toolkits können unter einer Einheitlichen \ac{API} adressiert werden, welche ursprünglich für die Verwendung unter Java konzipiert wurde. Jedoch existieren auch Implementierungen für andere Sprachen, wie etwa Python, Ruby oder Scala. Es soll weiterhin die grundlegende Funktionsweise dieser \ac{API} erläutert werden.\par
 Die Basis dafür bildet ein Annotaion Objekt, welches reinen Text als Eingabe akzeptiert und nach Ausführung einen annotierten Text ausgibt. Ein mögliches Ausgabeformat für den Annotierten Text ist unter Anderem XML. Über Annotater werden die . Diese können über den Konstruktor des Annotation Objekts eingebunden werden.\par
 Weiterhin besteht die Möglichkeit eigene Logik anhand eigener Annotator auszuführen. Hierzu muss ein Interface implementiert werden und der Name der Klasse angegeben. deren Instanzierung erfolgt über reflection 
