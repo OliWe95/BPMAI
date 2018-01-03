@@ -24,7 +24,8 @@ Zu diesem Zweck werden vorhergehende und folgende Wörter im jeweiligen Satz bet
 \caption{Visualisierung der Erweiterten Abhängikeiten am Beispiel}
 \label{fig:ENHDEPS}
 \end{wrapfigure}
-Der Stanford Parser baut auf den POS-Tags auf und liefert eine nochmals erweiterte syntaktische Analyse des Textes. Es werden zusätzlich die Abhängigkeiten zwischen den einzelnen Worten im Satz ermittelt. Abbildung \ref{fig:ENHDEPS} zeigt die Anhängigkeiten innerhalb der beiden Beispielsätze. (...Hier fehlt noch was)
+Der Stanford Parser baut auf den POS-Tags auf und liefert eine nochmals erweiterte syntaktische Analyse des Textes. Es werden zusätzlich zusammengehörige Phrasen im Satz ermittelt. Dafür werden wiederum 2 unterschiedliche Repräsentationen unterstützt (\cite[vgl.][4]{STANFORDNLP}). Die Analyse kann zum einen durch Abhängigkeiten, zum anderen durch den Aufbau wiedergegeben werden. Abhängigkeiten eines bestimmten Typs werden zwischen 2 Worten gebildet. Die Notation der Analyse nach dem Aufbau erfolgt hingegen anhand einer Baumstruktur. Der Text wird in Phrasen-Typen eingeteilt und die einzelnen Worte diesen zugeordnet.\par Es existieren verschiedene Implementierungsstrategien für den Stanford Parser. Im CoreNLP Kit wird ein Ansatz anhand eines Neuronalen Netzes verfolgt, der entsprechend auf Wahrscheinlichkeiten basiert. Dieser zeichnet sich vor Allem durch die Realisierung performanter Ausführungszeiten bei einer präzisen Vorhersagegenauigkeit aus (\cite[vgl.][8]{DEPPARSER}).\par
+Abbildung \ref{fig:ENHDEPS} zeigt die Syntaktische Analyse anhand der Abhängigkeiten innerhalb der beiden Beispielsätze. So existiert etwa eine Abhängigkeit des Typs det (determiner) vom Wort "'student"' zum Wort "'the"'. Die Schlussfolgerung ist, dass diese beiden Worte eine inhaltliche Phrase bilden.
 
 \subsection{Named-Entity-Recognition}
 \label{subsec:ner}
