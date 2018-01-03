@@ -40,6 +40,7 @@ Der in \ref{fig:SLEVEL} dargestellte Subprozess wird von Friedrich als \textit{E
 Die Identifikation der semantischen Rollen erfolgt hier folglich komplett regelbasiert über die Syntax-Annotationen mittels eines von Friedrich entwickelten Algorithmus. Zwar wird FrameNet eingesetzt, um Objekten auf Basis ihres Beszugsverbes ein Frame Element zuzuordnen, doch auf ein bestehendes \ac{SRL}-Tool wird nicht zurückgegriffen. Die Klassifikation eines Objektes als Actor oder Resource mittels WordNet könnte durch Named Entity Recognition und einen Word-Sense-Disambiguation-Algorithmus verbessert werden.
 
 \subsection{Textverarbeitung auf Text-Ebene}
+\label{subsec:TextLevel}
 \begin{figure}[H]
 \begin{center}
 \includegraphics[keepaspectratio=true, width=\textwidth]{pictures/textLevel.png}
@@ -55,7 +56,8 @@ Letztlich werden auf Basis aller Informationen die Flows generiert. Es wird davo
 
 
 \subsection{Problemfelder und Lösungsansätze}
-Kann vielleicht auch in den Ausblick.
-
+Die Evaluation des State-Of-The-Art Ansatzes anhand von Testdaten ergab, dass durchschnittlich 76\% eines Modells korrekt erzeugt werden kann (\cite[vgl.][115]{FRIEDRICH1}). Ebenfalls ergibt sich aus der Evaluation, welche Problemfelder bei diesem Ansatz bestehen.\par Zum einen sinkt die Korrektheit der erzeugten Modelle mit steigender Länge des analysierten Textes. Dies hat damit zutun, dass die Erkennung von Meta-Sätzen und für den Prozess irrelevanten Informationen problematisch ist (\cite[vgl.][116]{FRIEDRICH1}). Behandelt wird dieses Problem mit den in Abschnitt \ref{subsec:TextLevel} dargelegten Maßnahmen. Diese Beruhen im Wesentlichen auf der Coreference Resolution. Die Verwendung der im Vergleich präziseren Coreference Resolution des Stanford CoreNLP Kits könnte sich daher positiv auf dieses Problem auswirken.\par
+Außerdem ist nach Friedrich auch die Genauigkeit und Funktionsweise der Tools ein Problem. So liefert der Stanford Parser beispielsweise häufig nicht die Klassifikation der Verben (\cite[vgl.][117 ff.]{FRIEDRICH1}). Da allerdings mittlerweile eine neue Implementierung dessen existiert, wie in Abschnitt \ref{subsec:parser} dargelegt, muss diese Aussage neu evaluiert werden.\par
+Zusammenfassend ergibt sich, dass ein update des State-Of-The-Art Ansatzes mit aktuelleren \ac{NLP} Tools sich positiv auf dessen bestehende Probleme auswirken könnte.
 
 
