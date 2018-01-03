@@ -1,9 +1,11 @@
-\section{Betrachtungsgegenstand}
+\section{State-Of-The-Art Analyse}
+
+\subsection{Betrachtungsgegenstand}
 Der derzeitige State-Of-The-Art im Bereich \ac{T2P} ist das Verfahren von Friedrich aus dem Jahr 2011 (\cite[vgl.][11]{RIEFER}). Im Folgenden wird die von Friedrich erarbeitete Vorgehensweise (\cite[vgl.][]{FRIEDRICH1} und \cite[vgl.][]{FRIEDRICH2}) analysiert und Verbesserungsvorschläge erarbeitet. Die Analyse beschränkt sich auf die Textverarbeitung und die daraus resultierende Generierung des World Models. Die Konstruktion eines Graphen aus dem World Model ist nicht Teil dieser Arbeit.
 \par
 Zunächst wird im Folgenden kurz auf den konkreten Aufbau des World Models nach Friedrich eingegangen. Anschließend folgt die Analyse der Vorgehensweise. Gemäß der durch Friedrich vorgegebenen Gliederung wird zunächst die Textverarbeitung auf Satz-Ebene und dann die Textverarbeitung auf Text-Ebene analysiert. Abschließend werden bekannte Problemfelder zusammengetragen und Lösungsansätze vorgeschlagen.
 
-\section{World Model}
+\subsection{World Model}
 Die Verwendung einer World-Model-Datenstruktur als Zwischenspeicher für die aus einem Text extrahierten Informationen ist üblich. Friedrich greift auf bestehende Ansätze zurück und modifiziert die Datenstruktur, sodass später ein \ac{BPMN}-Graph abgeleitet werden kann.
 \par
 Das World Model nach Friedrich beinhaltet 8 Klassen (\cite[vgl.][46]{FRIEDRICH2}). 
@@ -21,7 +23,7 @@ Das World Model nach Friedrich beinhaltet 8 Klassen (\cite[vgl.][46]{FRIEDRICH2}
 
 Der korrekte Aufbau dieses World Models aus dem Text ist Grundvoraussetzung für die erfolgreiche Erstellung eines Graphen. Es entsteht Schritt für Schritt durch die Folgenden Verarbeitungsschritte.
 
-\section{Textverarbeitung auf Satz-Ebene}
+\subsection{Textverarbeitung auf Satz-Ebene}
 
 Der Eingangstext in natürlicher Sprache wird zunächst in einzelne Wörter und Sätze aufgesplittet. In \ref{fig:SLEVEL} wird dieser Vorgang der \textit{Sentence Decomposition} zugeordnet. Es handelt sich hierbei um eine normale Tokenization, bei der auf die Stanford CoreNLP Funktionen \textit{Stanford TokenizerAnnotator} und \textit{Stanford WordsToSentenceAnnotator} zurückgegriffen wird. Im nächsten Schritt wird der Text mit dem \textit{POSTaggerAnnotator} mit \textit{POS-Tags} versehen und anschließend mit dem PCFG-Parser \textit{ParserAnnotator} die Satzstruktur analysiert. Dies wird durch den Pfeil von StanfordParser zu Subprozess in \ref{fig:SLEVEL} symbolisiert. Auf eine pauschale \textit{Lemmatization} aller Wörter wird an dieser Stelle verzichtet. Die zwei weiteren an dieser Stelle üblichen Standard-Analysemöglichkeiten \textit{Collocation Extraction} (Erkennen von zusammengesetzten Wörtern) und \textit{Named Entity Recognition} (Analyse von Eigennamen) werden ebenfalls nicht genutzt.
 \par
@@ -38,7 +40,7 @@ Der in \ref{fig:SLEVEL} dargestellte Subprozess wird von Friedrich als \textit{E
 \par
 Die Identifikation der semantischen Rollen erfolgt hier folglich komplett regelbasiert über die Syntax-Annotationen mittels eines von Friedrich entwickelten Algorithmus. Zwar wird FrameNet eingesetzt, um Objekten auf Basis ihres Beszugsverbes ein Frame Element zuzuordnen, doch auf ein bestehendes \ac{SRL}-Tool wird nicht zurückgegriffen. Die Klassifikation eines Objektes als Actor oder Resource mittels WordNet könnte durch Named Entity Recognition und einen Word-Sense-Disambiguation-Algorithmus verbessert werden.
 
-\section{Textverarbeitung auf Text-Ebene}
+\subsection{Textverarbeitung auf Text-Ebene}
 \begin{figure}[H]
 \begin{center}
 
@@ -57,7 +59,7 @@ Determine Links:
 
 Build Flows:
 
-\section{Problemfelder und Lösungsansätze}
+\subsection{Problemfelder und Lösungsansätze}
 Kann vielleicht auch in den Ausblick.
 
 
