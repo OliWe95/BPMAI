@@ -47,7 +47,7 @@ Der bei Nomen am häufigsten auftretende Beziehungstyp ist das Hyponym/Hypernym.
 \par
 \subsection{Word Sense Disambiguation}
 
-Die meisten Worte einer Sprache haben mehrere Bedeutungen. Die richtige Wortbedeutung ergibt sich folglich erst aus dem Kontext der Wortverwendung. Um die Wortbedeutung maschinell zu erfassen, sind ein \textit{Sense Inventory} und ein klassifizierender Algorithmus notwendig. Bei einem solchen Sense Inventory handelt es sich um eine Informationsquelle, in der die verschiedenen Wortbedeutungen einsehbar sind. WordNet kann diese Rolle übernehmen. Ein mehrdeutiges Wort ist in WordNet Mitglied in verschiedenen Synsets, aus deren hypernymen Synsets sich dann die verschiedenen Wortbedeutungen ableiten lassen. Abbildung \ref{fig:WSD} zeigt einen Beispielsatz, indem die Bedeutung des englischen Wortes \textit{coffee} ermittelt werden soll.
+Die meisten Worte einer Sprache haben mehrere Bedeutungen. Die richtige Wortbedeutung ergibt sich folglich erst aus dem Kontext der Wortverwendung. Um die Wortbedeutung maschinell zu erfassen, sind ein \textit{Sense Inventory} und ein klassifizierender Algorithmus notwendig. Bei einem solchen Sense Inventory handelt es sich um eine Informationsquelle, in der die verschiedenen Wortbedeutungen einsehbar sind. WordNet kann diese Rolle übernehmen. Ein mehrdeutiges Wort ist in WordNet Mitglied in verschiedenen Synsets, aus deren hypernymen Synsets sich dann die verschiedenen Wortbedeutungen ableiten lassen. Abbildung \ref{fig:WSD} zeigt einen Beispielsatz, indem die Bedeutung des englischen Wortes \textit{paper} ermittelt werden soll.
 \par 
 
 %\begin{wrapfigure}{r}{15cm}
@@ -64,7 +64,7 @@ Die meisten Worte einer Sprache haben mehrere Bedeutungen. Die richtige Wortbede
 \end{center}
 \end{figure}
 
-Der Klassifikationsalogrithmus, hier als Blackbox dargestellt, nutzt die hierarchische Struktur von WordNet um die verschiedenen Bedeutungen nachzuschlagen. Daraufhin wählt er die wahrscheinlichste Bedeutung im Satzzusammenhang aus. In diesem Fall wählt er korrekt die Bedeutung \textit{beverage} aus.
+Der Klassifikationsalogrithmus, hier als Blackbox dargestellt, nutzt die hierarchische Struktur von WordNet um die verschiedenen Bedeutungen nachzuschlagen. Daraufhin wählt er die wahrscheinlichste Bedeutung im Satzzusammenhang aus. In diesem Fall wählt er korrekt die Bedeutung \textit{essay} aus.
 \par
 Somit ist Word Sense Disambiguation nichts anderes als ein Klassifikationsproblem, das basierend auf gewissen Eingabeparametern eine Einordnung vornimmt. Prinzipiell kann jeder generische, maschinell lernende Klassifikationsalgorithmus zur Lösung herangezogen werden (\cite[vgl.][326]{YAROWSKY}). Als am verlässlichsten stellen jedoch Kombinationen verschiedener Ranking-Algorithem heraus. Die geringe Menge an verfügbaren Trainingsdaten stellt hierbei jedoch immernoch ein Problem dar.
 
