@@ -104,9 +104,9 @@ footinclude]{scrreprt}
 %\input{chapters/a2_erklaerung}\newpage\cleardoublepage
 
 \tableofcontents \newpage\cleardoublepage
-\listoffigures  \newpage\cleardoublepage
+\listoffigures  \newpage
 \addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
-\listoftables  \newpage\cleardoublepage
+
 
 \chapter*{Abkürzungsverzeichnis}
 \begin{acronym} [FPGA]
@@ -124,7 +124,8 @@ footinclude]{scrreprt}
   \acro{SRL}{Semantic Role Labeling}
   \acro{T2P}{Text-2-Process}
 \end{acronym}
-
+\cleardoublepage
+\listoftables  \newpage\cleardoublepage
 
 \chapter{Einleitung}\pagenumbering{arabic}	
 
