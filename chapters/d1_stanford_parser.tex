@@ -2,11 +2,11 @@
 \label{sec:stanfordparser}
 
 Die Stanford \ac{NLP} Group, ein Team aus Software- und Linguistik Experten, entwickelt quelloffene Software zur Anwendung von \ac{NLP}. Resultat dieser Entwicklung ist eine Menge von Programmen, die jeweils eigenständige \ac{NLP} Probleme lösen und als Software mit eigener Distribution verfügbar sind (\cite[vgl.][1 ff.]{STANFORDNLPTEAM}).  Darunter befindet sich der Stanford Parser. Dieser ist, neben anderen Modulen, aber auch Bestandteil der Stanford CoreNLP Suite, einer seit 2010 offen verfügbaren, vereinigten Distribution der verschiedenen \ac{NLP} Komponenten mit einheitlicher Schnittstelle (\cite[vgl.][1 ff.]{STANFORDNLP}). Das grundlegende Prinzip des Stanford CoreNLPs besteht darin, den zu analysierenden Text in einzelne Elemente, also etwa Worte, zu zerlegen und diese mit Meta-Annotationen verschiedener funktionaler Komponenten zu versehen.\par
-Dieses Kapitel soll eine Auswahl derartiger, einzelner Komponenten und ihre Funktionsweise grundlegend erläutern. Zu diesem Zweck wird bei einigen dieser Erläuterungen eine Analyse-Visualisierung folgenden Minimalbeispiels verwendet:
+Dieses Kapitel soll eine Auswahl derartiger, einzelner Komponenten und ihre Funktionsweise grundlegend erläutern. Zu diesem Zweck wird bei einigen dieser Er\-läu\-ter\-ung\-en eine Analyse-Visualisierung folgenden Minimalbeispiels verwendet:
 \begin{quote}
 "'The student writes his paper at the DHBW. After he is finished, he hands it in."'
 \end{quote} Diese Visualisierung wird jeweils anhand eines Web-Tools der Stanford \ac{NLP} Group vorgenommen.\footnote{Erreichbar unter: http://nlp.stanford.edu:8080/corenlp/} Weiterhin soll die Verwendung des Core NLP Toolkits mit Java thematisiert werden. Außerdem sei an dieser Stelle angemerkt, dass der von im State-Of-The-Art Ansatz verwendete Stanford Parser lediglich über die beiden in Abschnitt \ref{subsec:pos} und \ref{subsec:parser} erläuterten Funktionen verfügt.
-
+\newpage
 \subsection{Part-of-Speech}
 \label{subsec:pos}
 
@@ -47,8 +47,8 @@ Zur Implementierung dieses Features wurde eine lexikalische Datenbasis verwendet
 \caption{Visualisierung der Coreference Resolution am Beispiel}
 \label{fig:COREF}
 \end{wrapfigure}
-Ein Text in natürlicher Sprache bezieht sich auf Entitäten nicht nur anhand deren eigentlicher Bezeichnung. In der Regel werden diese Bezeichnungen in derartigen Bezügen auch durch Pronomina o.Ä. ersetzt. Dies kann insbesondere auch satzübergreifend geschehen. Das Stanford CoreNLP ermöglicht über die Coreference Resolution eine Auflösung der Beziehungen zwischen den bezeichneten Entitäten und ihren jeweiligen substitutiven Elementen.\par
-Abbildung \ref{fig:COREF} zeigt die Bezüge der Pronomina zu ihren jeweiligen Entitäten über beide Sätze des Beispiels hinweg. 
+Ein Text in natürlicher Sprache bezieht sich auf Entitäten nicht nur anhand deren eigentlicher Bezeichnung. In der Regel werden diese Bezeichnungen in derartigen Bezügen auch durch Pronomina o.Ä. ersetzt. Dies kann insbesondere auch satzübergreifend geschehen. Das Stanford CoreNLP ermöglicht über die Coreference Resolution eine Auflösung der Beziehungen zwischen den bezeichneten Entitäten und ihren jeweiligen substitutiven Elementen. Die Implementierung arbeitet mit einer Kombination aus regelbasierten und machine learning Algorithmen, einem deterministischen Ansatz (\cite[vgl.][1]{COREFERENCE}).\par
+Abbildung \ref{fig:COREF} zeigt die Bezüge der Pronomina zu ihren jeweiligen Entitäten über beide Sätze des Beispiels hinweg.  So beziehen sich etwa die Worte "'he"' und "'it"' im zweiten Satz auf die Worte "'student"' und "'paper"'.
 
 \subsection{Sentiment Analysis}
 \label{subsec:sentiment}

@@ -7,7 +7,7 @@ Zunächst wird im Folgenden kurz auf den konkreten Aufbau des World Models nach 
 Die Verwendung einer World-Model-Datenstruktur als Zwischenspeicher für die aus einem Text extrahierten Informationen ist in diesem Umfeld üblich. Friedrich greift auf bestehende Ansätze zurück und modifiziert die Datenstruktur, sodass später ein \ac{BPMN}-Graph abgeleitet werden kann.Das World Model nach Friedrich beinhaltet 8 Klassen (\cite[vgl.][46]{FRIEDRICH2}). 
 \par
 \begin{itemize} 
-\item ORIGINATED ELEMENT: Aus einem Text extrahierte Entität. Um Rückverfolgbarkeit zu ermöglichen wird hier eine Referenz zum Ursprungssatz hinterlegt.
+\item ORIGINATED ELEMENT: Aus einem Text extrahierte Entität. Um Rück\-ver\-folg\-bar\-keit zu ermöglichen wird hier eine Referenz zum Ursprungssatz hinterlegt.
 \item SPECIFIED ELEMENT: Verfeinerung des \textit{Originated Element}. Speicher einen Bezug zu einem Wort im Text und wird genutzt um mit \textit{Specifiern} zu interagieren.
 \item SPECIFIER: Annotierte Information, die zur genaueren Spezifikation eines \textit{Specified Element} dient.
 \item EXTRACTED OBJECT: Textpart, der vom Hauptsatz extrahiert wurde. Es erbt vom \textit{Specified Element} und wird  von \textit{Actor} und \textit{Resource} genauer spezifiziert.
