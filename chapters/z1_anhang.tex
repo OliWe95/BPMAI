@@ -7,14 +7,22 @@
 
 \section{POS-Tags}
 
-\begin{table}[h!]
- 
-  \begin{tabular}{|l|l|l|} 
-      \toprule
-    & Tag & Bedeutung\\
-    \midrule
+\begin{longtable}{|l|l|l|}
+\caption{Liste aller POS-Tags der Penn Treebank (\cite[vgl.][8]{PENNTREEBANK})}\\
+\hline \multicolumn{1}{|c|}{\textbf{ }} & \multicolumn{1}{c|}{\textbf{Tag}} & \multicolumn{1}{c|}{\textbf{Bedeutung}} \\ \hline 
+\endfirsthead
 
-     1. & CC & Coordinating conjunction \\
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- Weiterführung}} \\
+\hline \multicolumn{1}{|c|}{\textbf{ }} & \multicolumn{1}{c|}{\textbf{Tag}} & \multicolumn{1}{c|}{\textbf{Bedeutung}} \\ \hline 
+\endhead
+
+\hline \multicolumn{3}{|r|}{{Weiterführung auf nächster Seite}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+ 1. & CC & Coordinating conjunction \\
 	 2. & CD & Cardinal number\\
 	 3. & DT & Determiner \\
 	4.&  EX &	Existential there\\
@@ -50,66 +58,87 @@
 	34.& WP & Wh-pronoun\\
 	35.& WP\$ & Possessive wh-pronoun\\
 	36.& WRB & Wh-adverb	\\
-	
-	\bottomrule
-  \end{tabular}
-  \caption{Liste aller POS-Tags der Penn Treebank}
-  \label{table:POSTAGS}
-\end{table}
+
+	  \label{table:POSTAGS}
+\end{longtable}
+
+
 
 \section{Stanford Dependency-Tags}
 
-\begin{table}[h!]
- 
-  \begin{tabular}{|l|l|l|l|}
-      \toprule
-    & Tag & Bedeutung\\
-    \midrule
-   AUX & link between a content verb and an auxiliary verb, e.g. 'Reagan has died' & aux(died,has)\\
-       AUXPASS & link between a passive participle and a passive auxiliary, e.g. 'Kennedy has been killed' & auxpass(killed,been)\\
-       COP & link between a predicative content word and its copula, e.g. 'Bill is big' & cop(big,Bill), 'Bill is an honest man' & cop(man,is)\\
-   CONJ & link between two (content) words connected by a conjunction, e.g. 'Bill is big and honest' & conj(big,honest)\\
-   CC & link between a content word and a conjunction, e.g. 'Bill is big and honest' & cc(big,and)\\
-   ARG & link between a verb and one of its arguments, e.g. 'Clinton defeated Dole' & arg(defeated,Clinton), arg(defeated,Dole)\\
-       SUBJ & link between a verb and its subject, e.g. 'Clinton defeated Dole' & subj(defeated,Clinton), 'what she said is untrue' & subj(is,what she said)\\
-           NSUBJ & link between a verb and an NP subject, e.g. 'Clinton defeated Dole' & nsubj(defeated,Clinton)\\
-               NSUBJPASS & link between a passive participle and an NP surface subject, e.g. 'Dole was defeated by Clinton' & nsubjpass(defeated,Dole)\\
-           CSUBJ & link between a verb and a CP subject, e.g. 'what she said makes sense' & csubj(makes,said), 'what she said is untrue' & ccsubj(untrue,said)\\
-               CSUBJPASS & link between a passive participle and a CP surface subject, e.g. 'that she lied was suspected by everyone' & csubjpass(suspected,lied)\\
-       COMP & link between a verb and its complement, e.g. 'she gave me a raise' & comp(gave,me), comp(gave,raise); 'I like to swim' & comp(like,swim)\\
-           OBJ & link between a verb and one of its objects, e.g. 'she gave me a raise' & obj(gave,me), obj(gave,raise)\\
-               DOBJ & link between a verb and one of its accusative objects, e.g. 'she gave me a raise' & dobj(gave,raise)\\
-               IOBJ & link between a verb and its dative object, e.g. 'she gave me a raise' & iobj(gave,me)\\
-               POBJ & link between a preposition and its object, e.g. 'on the chair' & pobj(on,chair)\\
-           PCOMP & link between a preposition and a verb which heads its complement CP or VP, e.g. 'information on whether users are at risk' & pcomp(on,are), 'they heard about you missing classes' & pcomp(about,missing)\\
-           ATTR & link between a verb like 'be/seem/appear' and its complement\\
-           CCOMP & link between a verb or adjective and a CP complement (finite or remnant subjunctive), e.g. 'he says that you like to swim' & ccomp(says,like), 'I am certain that he did it' & ccomp(certain,did)\\
-           XCOMP & link between a verb or adjective and a (controlled) VP complement, e.g. 'I like to swim' & xcomp(like,swim), 'I am ready to leave' & xcomp(ready,leave)\\
-           COMPL(m) & link between a subordinate verb in a complement clause and the 'that' complementiser that introduces it, e.g. 'he says that you like to swim' & complm(like,that)\\
-           MARK & link between a subordinate verb in an adverbial clause and the subordinating conjunction (i.e. marker) that introduces it, e.g. 'after insurgants launched simultaneous attacks' & mark(launched,after)\\
-           REL & link between a verb in a relative clause and the head of the relative pronoun phrase which introduces it, e.g. 'the man that you love' & rel(love,that), 'the man whose wife you love' & rel(love,wife)\\
-           ACOMP & link between a verb and an adjective complement, e.g. 'she looks very beautiful' & acomp(looks,beautiful)\\
-       AGENT & link between a passive participle and the by&PP introducing its agent, e.g. 'The man has been klled by the police' & agent(killed,police)\\
-   REF & link between a noun and a relative pronoun introducing a relative clause, e.g. 'the book which you bought' & ref(book,which)\\
-   EXPL & link between a verb and an expletive 'there' subject, e.g. 'there is a statue in the corner' & expl(is,there)\\
-   MOD & link between a verb and one of its modifiers, e.g. 'last night I swam in the pool' & mod(swam,in the pool), mod(swam,last night)\\
-   SDEP & semantic dependent\\
-       XSUBJ & link between a controlled verb and its controlling subject, e.g. 'Tom likes to eat fish' & xsubj(eat,Tom)\\
-   PRED & link between a subject and its predicate, e.g. 'Reagan died' & pred(Reagan,died)\\
-   PUNC & link between a word and a punctuation marker, e.g. 'Go home!' & punc(Go,!)\\
+\begin{longtable}{|l|l|l|}
 
-	\bottomrule
-  \end{tabular}
-  \caption{Liste aller DEP-Tags des Stanford Parsers}
-  \label{table:DEPTAGS}
-\end{table}
+  \caption{Liste aller DEP-Tags des Stanford Parsers (\cite[vgl.][3 ff.]{STANFORDDEPS})}\\
+\hline \multicolumn{1}{|c|}{\textbf{     }} & \multicolumn{1}{c|}{\textbf{Tag}} & \multicolumn{1}{c|}{\textbf{Bedeutung}} \\ \hline 
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- Weiterführung}} \\
+\hline \multicolumn{1}{|c|}{\textbf{     }} & \multicolumn{1}{c|}{\textbf{Tag}} & \multicolumn{1}{c|}{\textbf{Bedeutung}} \\ \hline 
+\endhead
+
+\hline \multicolumn{3}{|r|}{{Weiterführung auf nächster Seite}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+  1. & acomp & adjectival complement \\
+2. & advcl & adverbial clause modifier\\
+3. & advmod & adverb modifier\\
+4. & agent & agent\\
+5. & amod & adjectival modifier\\
+6. & appos & appositional modifier\\
+7. & aux & auxiliary\\
+8. & auxpass & passive auxiliary\\
+9. & cc & coordination\\
+10. & ccomp & clausal complement\\
+11. & conj & conjunct\\
+12. & cop & copula\\
+13. & csubj & clausal subject\\
+14. & csubjpass & clausal passive subject\\
+15. & dep & dependent\\
+16. & det & determiner\\
+17. & discourse & discourse element\\
+18. & dobj & direct object\\
+19. & expl & expletive\\
+20. & goeswith & goes with\\
+21. & iobj & indirect object\\
+22. & mark & marker\\
+23. & mwe & multi-word expression\\
+24. & neg & negation modifier\\
+25. & nn & noun compound modifier\\
+26. & npadvmod & noun phrase as adverbial modifier\\
+27. & nsubj & nominal subject\\
+28. & nsubjpass & passive nominal subject\\
+29. & num & numeric modifier\\
+30. & number & element of compound number\\
+31. & parataxis & parataxis\\
+32. & pcomp & prepositional complement\\
+33. & pobj & object of a preposition\\
+34. & poss & possession modifier\\
+35. & possessive & possessive modifier\\
+36. & preconj & preconjunct\\
+37. & predet & predeterminer\\
+38. & prep & prepositional modifier\\
+39. & prepc & prepositional clausal modifier\\
+40. & prt & phrasal verb particle\\
+41. & punct & punctuation\\
+42. & quantmod & quantifier phrase modifier\\
+43. & rcmod & relative clause modifier\\
+44. & ref & referent\\
+45. & root & root\\
+46. & tmod & temporal modifier\\
+47. & vmod & reduced non-finite verbal modifier\\
+48. & xcomp & open clausal complement\\
+49. & xsubj & controlling subject\\
+
+\end{longtable}
 
 \section{Beigabenverzeichnis}
 \begin{enumerate}
 	\item Seminararbeit
 	\begin{enumerate}
-		\item WWI15B1 Weisenburger Oliver PA2.pdf
-		\item WWI15B1 Weisenburger Oliver PA2 LaTeX Code.rar
+		\item Seminararbeit Text2WorldModel.pdf
 	\end{enumerate}
 
 \end{enumerate} 
