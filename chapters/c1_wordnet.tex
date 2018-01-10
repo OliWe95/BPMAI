@@ -11,14 +11,14 @@ Das \textit{Princeton WordNet} ist eine solche Ontologie, also eine als semantis
 \par
 Die aktuelle Version folgt außerdem den Linked Open Data Principles, und somit auch den Grundsätzen des Semantic Web. 
 \par
-\textit{„Linked Open Data (LOD) is Linked Data which is released under an open licence, which does not impede its reuse for free.“}(\cite[vgl.][1]{BERNERS_LEE}). 
+\textit{„Linked Open Data (LOD) is Linked Data which is released under an open licence, which does not impede its reuse for free.“} (\cite[vgl.][1]{BERNERS_LEE}). 
 \par
 Die freie Verfügbarkeit und die Linked-Data-Struktur haben maßgeblich zur weiten Verbreitung von WordNet beigetragen. Als Metadatenformat in Wordnet wurde die weit verbreitete, standardisierte \textit{Web Ontology Language} eingesetzt. Im \ac{NLP} wird auf WordNet für die Erstellung der semantischen Annotationen benötigt. Es dient als essentielle Ressource für überwacht lernende Algorithmen.
 \par
 
 \subsection{Aufbau und Struktur}
 
-DIe Basiseinheit in WordNet ist das Wort in seiner Grundform (Lemma). In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Synsets gruppiert. Der Begriff ist ein Neologismus aus \textit{synonym} (dt. Synonym) und \textit{set} (dt. Menge, Zusammenstellung). Die Synsets werden über Kanten verknüpft, die bestimmte semantische Relationen repräsentieren. So entsteht ein gerichteter azyklischer Graph (\cite[vgl.][12]{OLTRAMANI}), der dem Aufbau des neuronalen Netzes im menschlichen Gehirn ähnelt.Grundsätzlich setzt sich WordNet aus vier Datenbanken für die jeweiligen Wortarten Nomen, Verben, Adjektive und Adverben zusammen. Jede dieser Datenbanken beinhaltet miteinander verknüpfte Synsets. Hierbei wird jeweils auch die Arte der Verknüpfung bzw. der semantischen Relation angegeben. Abhängig von der Wortart sind verschiedene Arten von Relationen möglich. Tabelle \ref{table:table2} zeigt die Relationen von Nomen und Verben in WordNet geordnet nach Häufigkeit.
+Die Basiseinheit in WordNet ist das Wort in seiner Grundform (Lemma). In WordNet werden Wörter mit gleicher oder nahezu identischer Bedeutung in Synsets gruppiert. Der Begriff ist ein Neologismus aus \textit{synonym} (dt. Synonym) und \textit{set} (dt. Menge, Zusammenstellung). Die Synsets werden über Kanten verknüpft, die bestimmte semantische Relationen repräsentieren. So entsteht ein gerichteter azyklischer Graph (\cite[vgl.][12]{OLTRAMANI}), der dem Aufbau des neuronalen Netzes im menschlichen Gehirn ähnelt.Grundsätzlich setzt sich WordNet aus vier Datenbanken für die jeweiligen Wortarten Nomen, Verben, Adjektive und Adverben zusammen. Jede dieser Datenbanken beinhaltet miteinander verknüpfte Synsets. Hierbei wird jeweils auch die Arte der Verknüpfung bzw. der semantischen Relation angegeben. Abhängig von der Wortart sind verschiedene Arten von Relationen möglich. Tabelle \ref{table:table2} zeigt die Relationen von Nomen und Verben in WordNet geordnet nach Häufigkeit.
 \par
 \begin{table}[h!]
   \centering
@@ -64,7 +64,7 @@ Somit ist Word Sense Disambiguation nichts anderes als ein Klassifikationsproble
 
 \subsection{Java APIs}
 
-Um WordNet direkt in eigene Softwareprojekte einbinden zu können, stehen allein für die Programmiersprache Java zwölf verschiedenen Bibliotheken zu Verfügung. Bei der Wahl einer geeigneten Bibliothek hängt von verschiedenen Faktoren ab. Im Vergleich schneidet das \textit{Java WordNet Interface} \ac{JWI} für den allgemeinen Anwendungsfall am besten ab (\cite[vgl.][2]{FINLAYSON}). Auch gegenüber der weit verbreiteten \textit{Java WordNet Library} \ac{JWNL} bietet es nach Finlayson die folgenden Vorteile:
+Um WordNet direkt in eigene Softwareprojekte einbinden zu können, stehen allein für die Programmiersprache Java zwölf verschiedenen Bibliotheken zu Verfügung. Bei der Wahl einer geeigneten Bibliothek hängt von verschiedenen Faktoren ab. Im Vergleich schneidet das \textit{\ac{JWI}} für den allgemeinen Anwendungsfall am besten ab (\cite[vgl.][2]{FINLAYSON}). Auch gegenüber der weit verbreiteten \textit{\ac{JWNL}} bietet es nach Finlayson die folgenden Vorteile:
 
 \begin{itemize} 
 \item Vollumfänglicher Zugriff auf alle WordNet Ressourcen
